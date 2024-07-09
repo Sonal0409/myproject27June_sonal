@@ -1,0 +1,23 @@
+# to write any comment use # in YAML
+
+
+name: This is our first workflow
+
+
+# next we write what will trigger this workflow
+on:
+  push:
+    branches: [ "main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:   # this mean the workflow will be executed by you manually
+jobs:
+  job1:   # this is job name
+    runs-on: ubuntu-latest   # give the name of OS runner where the job will be executed
+    steps:
+     - name: Run a single command
+       run: echo hello World!
+     - name: Run a set of commands
+       run: |    # use | symbol to pass set of commands to run function
+         echo hello to github
+         echo test
